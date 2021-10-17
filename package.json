@@ -1,0 +1,25 @@
+{
+  "name": "structured-data-templates",
+  "displayName": "Structured Data Templates",
+  "description": "",
+  "version": "0.0.1",
+  "publisher": "danielgtaylor",
+  "repository": "https://github.com/danielgtaylor/vscode-sdt",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "grammars": [
+      {
+        "injectTo": [
+          "source.yaml"
+        ],
+        "scopeName": "source.sdt.yaml",
+        "path": "./syntaxes/sdt.tmLanguage.json"
+      }
+    ]
+  }
+}

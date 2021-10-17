@@ -1,0 +1,51 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "scopeName": "source.sdt.yaml",
+  "injectionSelector": "L:source.yaml",
+  "patterns": [
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#expr"
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [
+        {
+          "match": "(\\$(if|then|else|for|as|each))(?::)",
+          "captures": {
+            "1": {
+              "name": "keyword.control.flow"
+            }
+          }
+        }
+      ]
+    },
+    "expr": {
+      "patterns": [
+        {
+          "begin": "\\$\\{",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.template-expression.begin"
+            }
+          },
+          "end": "\\}",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.template-expression.end"
+            }
+          },
+          "name": "expression",
+          "patterns": [
+            {
+              "include": "source.js"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
