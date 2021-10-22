@@ -14,7 +14,7 @@
     "keywords": {
       "patterns": [
         {
-          "match": "(\\$(if|then|else|for|as|each))(?::)",
+          "match": "(\\$(if|then|else|for|as|each|flatten))(?::)",
           "captures": {
             "1": {
               "name": "keyword.control.flow"
