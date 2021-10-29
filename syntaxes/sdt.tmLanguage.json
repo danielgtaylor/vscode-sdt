@@ -41,7 +41,43 @@
           "name": "expression",
           "patterns": [
             {
-              "include": "source.js"
+              "begin": "\"",
+              "end": "\"",
+              "name": "string.quoted.double",
+              "patterns": [
+                {
+                  "match": "\\\\.",
+                  "name": "constant.character.escape"
+                }
+              ]
+            },
+            {
+              "match": "[*/%^+-]",
+              "name": "keyword.operator.arithmetic"
+            },
+            {
+              "match": "[><=!]+",
+              "name": "keyword.operator.relational"
+            },
+            {
+              "match": "\\b(in|startsWith|endsWith)\\b",
+              "name": "support.function"
+            },
+            {
+              "match": "\\b(startswith|endswith)\\b",
+              "name": "invalid.illegal"
+            },
+            {
+              "match": "[0-9.]+",
+              "name": "constant.numeric"
+            },
+            {
+              "match": "\\b(and|or|not)\\b",
+              "name": "keyword.operator.logical"
+            },
+            {
+              "match": "[a-zA-Z0-9_-]+",
+              "name": "variable.other"
             }
           ]
         }
