@@ -2,14 +2,26 @@
   "name": "structured-data-templates",
   "displayName": "Structured Data Templates",
   "description": "",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "danielgtaylor",
   "repository": "https://github.com/danielgtaylor/vscode-sdt",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.60.0"
   },
   "categories": [
-    "Programming Languages"
+    "Programming Languages",
+    "Linters"
+  ],
+  "main": "./out/main.js",
+  "scripts": {
+    "vscode:prepublish": "npm run esbuild-base -- --minify",
+    "esbuild-base": "esbuild ./main.js --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
+    "esbuild": "npm run esbuild-base -- --sourcemap",
+    "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch"
+  },
+  "activationEvents": [
+    "onLanguage:yaml"
   ],
   "contributes": {
     "grammars": [
@@ -21,5 +33,14 @@
         "path": "./syntaxes/sdt.tmLanguage.json"
       }
     ]
+  },
+  "extensionDependencies": [
+    "redhat.vscode-yaml"
+  ],
+  "devDependencies": {
+    "esbuild": "^0.13.12",
+    "@apidevtools/json-schema-ref-parser": "^9.0.9",
+    "hash-sum": "^2.0.0",
+    "yaml": "^1.10.2"
   }
 }
